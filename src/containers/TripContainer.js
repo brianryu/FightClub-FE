@@ -10,7 +10,7 @@ render() {
     return (
         <div>
             <Flights />
-            <TripList />
+            <TripList flights={this.props.itineraryFlights}/>
         </div>
         
     )
