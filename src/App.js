@@ -6,11 +6,11 @@ import TripContainer from './containers/TripContainer';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home'
 import Error from './components/Error'
+import TripShow from './containers/TripShow'
 
 class App extends React.Component {
 
-//Fetching from database here to assign it to all flights
-//button on flights to add to itinerary flights
+
 
 
   render(){
@@ -19,6 +19,7 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route path="/trips" component={TripContainer} />
+          
           <Route path="/home" component={Home} />
           <Route path="/" component={Error} />
         </Switch>

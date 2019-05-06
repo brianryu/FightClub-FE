@@ -3,7 +3,7 @@ import React from 'react'
 class PlanForm extends React.Component{
 
     state ={
-        location: ''
+        name: ''
     }
 
     handleChange = (event) => {
@@ -17,7 +17,7 @@ class PlanForm extends React.Component{
         return(
             <form onSubmit={(event) => {this.props.newTrip(event, this.state)}}>
                 <label>Plan New Trip</label>
-                <input name="location" type="textfield" onChange={this.handleChange} value={this.state.location}></input>
+                <input name="name" type="textfield" onChange={this.handleChange} value={this.state.name}></input>
                 <input type="submit"></input>
             </form>
         )
