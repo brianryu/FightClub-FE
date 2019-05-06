@@ -6,7 +6,9 @@ import ToDoList from '../components/ToDoList'
 
 class TripShow extends React.Component {
 
-    
+    state = {
+        todo: []
+    }
 
     render() {
 
@@ -14,7 +16,7 @@ class TripShow extends React.Component {
 
         return(
             <div>
-                <h1>Trip Tile</h1>
+                <h1>Trip Show Page</h1>
                 <MapContainer destinationName={this.props.trip} />
                 <ToDoList handleSubmit={this.handleSubmit}/>
                 

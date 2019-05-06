@@ -4,6 +4,7 @@ import TripShow from './TripShow'
 class TripList extends React.Component {
 
    
+
     tripPage = (event) => {
         console.log(this.props.trip)
         // return <TripShow trip={this.props.trip}/>
