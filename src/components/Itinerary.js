@@ -19,9 +19,8 @@ class Itinerary extends React.Component {
             </div>
         )
     }
-
-
-
 }
 
 export default Itinerary;
+
+//layout of itinerary includes list of things to do -> almost as a form where the input will be the key-value pairs
