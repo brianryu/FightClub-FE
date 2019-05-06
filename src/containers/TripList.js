@@ -4,15 +4,12 @@ import Itinerary from '../components/Itinerary'
 class TripList extends React.Component {
 
     render(){
-        return(
+        return(           
             <div>
                 <Itinerary flights={this.props.flights}/>
-            </div>
+            </div>  
         )
     }
-
-
-
 }
 
 
@@ -20,3 +17,5 @@ class TripList extends React.Component {
 
 export default TripList;
 
+// The Itinerary in this file refers to one Tile(one trip) of Saved Trips on the list of all saved trips
+// 
