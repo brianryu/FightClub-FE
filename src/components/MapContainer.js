@@ -7,7 +7,12 @@ export class MapContainer extends React.Component {
         this.state = {
             activeMarker: {},
             selectedPlace: {},
-            destinationName: this.props.destinationName
+            destinationName: this.props.destinationName,
+            markers: [{
+                lat: 0,
+                lng: 0,
+                title: ''
+            }]
         }
 
         const mapstyle = {
@@ -35,6 +40,8 @@ export class MapContainer extends React.Component {
                         }}
                     >
 
+                    
+
                     {/* <GoogleMap>
                     {props.markers.map(marker => (
                         <Marker
@@ -47,13 +54,7 @@ export class MapContainer extends React.Component {
 
 
 
-                    <Marker 
-                        onClick={this.onMarkerClick}
-                        name={'hello'}
-                    />
-                    <div>
-                        <h4>Your Trip to {this.state.selectedPlace.name}</h4>
-                    </div>
+                    
                     </Map>
                 </div>
         )

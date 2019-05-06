@@ -1,12 +1,23 @@
 import React from 'react';
-import Itinerary from '../components/Itinerary'
+import TripShow from './TripShow'
 
 class TripList extends React.Component {
 
+   
+    tripPage = (event) => {
+        console.log(this.props.trip)
+        // return <TripShow trip={this.props.trip}/>
+    }
+
+
     render(){
+
+       
+
         return(           
             <div>
-                <Itinerary flights={this.props.flights}/>
+                <h2 onClick={this.tripPage}>{this.props.trip}</h2>
+                <TripShow trip={this.props.trip} handleSubmit={this.props.handleSubmit}/>
             </div>  
         )
     }
@@ -16,6 +27,3 @@ class TripList extends React.Component {
 
 
 export default TripList;
-
-// The Itinerary in this file refers to one Tile(one trip) of Saved Trips on the list of all saved trips
-// 
