@@ -3,6 +3,7 @@ import { Route, Switch, Link } from "react-router-dom";
 
 import TripList from "./TripList";
 import PlanForm from "../components/PlanForm";
+import TripShow from './TripShow'
 
 class TripContainer extends React.Component {
   state = {
@@ -53,7 +54,7 @@ class TripContainer extends React.Component {
                   return
               } else {
                   return (
-                      <TripList eachTrip={foundTrip.trip}/>
+                      <TripShow eachTrip={foundTrip}/>
                   )
               }
           }}/>

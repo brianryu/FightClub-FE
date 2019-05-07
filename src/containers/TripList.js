@@ -13,7 +13,6 @@ class TripList extends React.Component {
                 <h2>{this.props.eachTrip.name}</h2> 
                 <img src={this.props.eachTrip.img_url} />
                 </Link>
-                
             </div>  
         )
     }

@@ -38,10 +38,7 @@ header {
   color: white;
   line-height: 50px;
   padding: 0 20px;
-  display: block;
-  position: fixed; 
-  left: 0 ; right: 0; top: 0; 
-  height:[footer-height] 
+  
 }
 
 footer {
