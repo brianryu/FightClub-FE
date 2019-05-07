@@ -41,7 +41,6 @@ class TripContainer extends React.Component {
     return (
       <div>
         <Switch>
-
           <Route path="/trips/:name" render={(props) => {    
               console.log(props)          
             const foundTrip = this.state.trips.find(trip => {
@@ -57,17 +56,14 @@ class TripContainer extends React.Component {
             }
         }}/>
 
-
         <Route path="/trips" render={(props) => {
             return (
                 <div>
-
                     <h1>Your Trips</h1>
                     <PlanForm newTrip={this.newTrip}/>
                     {this.state.allTrips.map(tripObj => {
                     return <TripList eachTrip={tripObj} />;
                 })}
-
                   <PlanForm newTrip={this.newTrip} />
 
                 </div>
