@@ -13,7 +13,7 @@ class TripContainer extends React.Component {
     fetch("http://localhost:3005/api/v1/todos")
       .then(response => response.json())
       .then(tripArray => {
- 
+        console.log(tripArray)
         this.setState({
           trips: tripArray
         });
@@ -39,7 +39,7 @@ class TripContainer extends React.Component {
     return (
       <div>
         <Switch>
-          <Route path="/trips/:id" render={props => {
+          <Route path="/trips/:id" render={(props) => {
               console.log(props)
               
               
@@ -47,13 +47,13 @@ class TripContainer extends React.Component {
                     console.log(trip.id)
                   return trip.id === parseInt(props.match.params.id)
               })
-            //   debugger;
+              console.log(foundTrip);
               if (foundTrip === undefined) {
                   props.history.push("/")
                   return
               } else {
                   return (
-                      <TripList eachTrip={foundTrip}/>
+                      <TripList eachTrip={foundTrip.trip}/>
                   )
               }
           }}/>

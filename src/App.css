@@ -33,12 +33,15 @@
 }
 
 header {
-  background-color: #FF7E47;
-  padding: 20px;
+  background: #FF7E47;
   text-align: center;
-  line-height: 10px;
-  font-size: 20px;
   color: white;
+  line-height: 50px;
+  padding: 0 20px;
+  display: block;
+  position: fixed; 
+  left: 0 ; right: 0; top: 0; 
+  height:[footer-height] 
 }
 
 footer {
@@ -50,7 +53,8 @@ footer {
 }
 
 .footer { 
-  position: absolute; 
+  display: block;
+  position: fixed; 
   left: 0 ; right: 0; bottom: 0; 
   height:[footer-height] 
 }
