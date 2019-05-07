@@ -36,8 +36,8 @@ header {
   background: #FF7E47;
   text-align: center;
   color: white;
-  line-height: 50px;
-  padding: 0 20px;
+  line-height: 20px;
+  padding: 20px;
   
 }
 
@@ -47,6 +47,11 @@ footer {
   color: white;
   line-height: 50px;
   padding: 0 20px;
+}
+
+img {
+  max-width:50%;
+  height:auto;
 }
 
 .footer { 
