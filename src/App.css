@@ -31,3 +31,26 @@
     transform: rotate(360deg);
   }
 }
+
+header {
+  background-color: #FF7E47;
+  padding: 20px;
+  text-align: center;
+  line-height: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+footer {
+  background: #FF7E47;
+  text-align: center;
+  color: white;
+  line-height: 50px;
+  padding: 0 20px;
+}
+
+.footer { 
+  position: absolute; 
+  left: 0 ; right: 0; bottom: 0; 
+  height:[footer-height] 
+}
