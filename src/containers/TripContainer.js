@@ -64,6 +64,8 @@ class TripContainer extends React.Component {
                     {this.state.allTrips.map(tripObj => {
                     return <TripList eachTrip={tripObj} />;
                 })}
+                  <PlanForm newTrip={this.newTrip} />
+
                 </div>
             );
         }}
