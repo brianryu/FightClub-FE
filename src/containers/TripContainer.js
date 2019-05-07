@@ -10,14 +10,11 @@ import PlanForm from '../components/PlanForm';
 
 class TripContainer extends React.Component{
 
-    // state = {
-    //     trips: ['New Orleans', 'NYC', 'LA']
-    //     //this state will have all trips with to do list array?
-    // }
+    
 
     state = {
-        trips: [],
-        clicked: false
+        trips: []
+       
       }
       
       componentDidMount(){
@@ -30,20 +27,16 @@ class TripContainer extends React.Component{
         })
       }
 
-    isClicked = () => {
-        this.setState({
-            clicked: !this.state.clicked
-        })
-    }
+  
 
     newTrip = (event, tripObj) => {
         event.preventDefault();
         console.log(event)
-        let newArray = [...this.state.trips, tripObj]
+        let newArray = [...this.props.trips, tripObj]
         this.setState({
             trips: newArray
         })
-        console.log(this.state.trips)
+        console.log(this.props.trips)
     }
 
 
@@ -56,12 +49,12 @@ class TripContainer extends React.Component{
     render() {
         return (
             <div>
-                {console.log(this.state)}
+               
                 <PlanForm newTrip={this.newTrip}/>
     
                 <h1>Your Trips</h1>
                 {this.state.trips.map(trip => {
-                    return <TripList eachTrip={trip} handleSubmit={this.handleSubmit} isClicked={this.state.isClicked} />  
+                    return <TripList eachTrip={trip}  />  
                 })} 
                
                 

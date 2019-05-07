@@ -6,10 +6,8 @@ import TripContainer from './containers/TripContainer';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home'
 import Error from './components/Error'
-import TripShow from './containers/TripShow'
 
 class App extends React.Component {
-
 
 
 
@@ -19,7 +17,6 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route path="/trips" component={TripContainer} />
-          
           <Route path="/home" component={Home} />
           <Route path="/" component={Error} />
         </Switch>
