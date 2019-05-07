@@ -16,9 +16,10 @@ class TripShow extends React.Component {
 
         return(
             <div>
-                <h1>Trip Show Page</h1>
-                <MapContainer destinationName={this.props.trip} />
+                <h1>Your Trip to {this.props.eachTrip.location}</h1>
                 <ToDoList handleSubmit={this.handleSubmit}/>
+                <MapContainer destination={this.props.eachTrip.location} />
+                
                 
             </div>
         )
