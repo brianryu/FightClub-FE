@@ -2,79 +2,72 @@ import React from "react";
 import { Route, Switch, Link } from "react-router-dom";
 
 import TripList from "./TripList";
-import PlanForm from "../components/PlanForm";
+import PlanForm from '../components/PlanForm'
 import TripShow from './TripShow'
 
 class TripContainer extends React.Component {
   state = {
-    trips: []
+    trips: [],
+    allTrips: []
   };
 
   componentDidMount() {
     fetch("http://localhost:3005/api/v1/todos")
       .then(response => response.json())
       .then(tripArray => {
-        console.log(tripArray)
         this.setState({
           trips: tripArray
+        });
+      });
+    
+      fetch("http://localhost:3005/api/v1/trips")
+      .then(response => response.json())
+      .then(newTrip => {
+        this.setState({
+          allTrips: newTrip
         });
       });
   }
 
   newTrip = (event, tripObj) => {
     event.preventDefault();
-    console.log(event);
-    let newArray = [...this.props.trips, tripObj];
+    let newArray = [tripObj, ...this.state.allTrips];
     this.setState({
-      trips: newArray
+      allTrips: newArray
     });
-    console.log(this.props.trips);
-  };
-
-  handleSubmit = (event, taskObj) => {
-    event.preventDefault();
-    console.log(taskObj);
   };
 
   render() {
     return (
       <div>
         <Switch>
-          <Route path="/trips/:id" render={(props) => {
-              console.log(props)
-              
-              
-              const foundTrip = this.state.trips.find(trip => {
-                    console.log(trip.id)
-                  return trip.id === parseInt(props.match.params.id)
-              })
-              console.log(foundTrip);
-              if (foundTrip === undefined) {
-                  props.history.push("/")
-                  return
-              } else {
-                  return (
-                      <TripShow eachTrip={foundTrip}/>
-                  )
-              }
-          }}/>
+          <Route path="/trips/:name" render={(props) => {    
+              console.log(props)          
+            const foundTrip = this.state.trips.find(trip => {
+                return trip.trip.name.toLowerCase() === props.match.params.name.toLowerCase()
+            })
+            if (foundTrip === undefined) {
+                props.history.push("/")
+            return
+            } else {
+                return (
+                    <TripShow eachTrip={foundTrip}/>
+                )
+            }
+        }}/>
 
-          <Route
-            path="/trips"
-            render={props => {
-              return (
+        <Route path="/trips" render={(props) => {
+            return (
                 <div>
-                  <PlanForm newTrip={this.newTrip} />
-
-                  <h1>Your Trips</h1>
-                  {this.state.trips.map(tripObj => {
-                    console.log(tripObj.trip.name);
-                    return <TripList eachTrip={tripObj.trip} />;
-                  })}
+                    <h1>Your Trips</h1>
+                    <PlanForm newTrip={this.newTrip}/>
+                    {this.state.allTrips.map(tripObj => {
+                    return <TripList eachTrip={tripObj} />;
+                })}
                 </div>
-              );
-            }}
-          />
+            );
+        }}
+        />
         </Switch>
       </div>
     );

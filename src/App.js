@@ -13,7 +13,6 @@ class App extends React.Component {
 
   render(){
     return (
-      //when you click add flight, it adds to state of itineraryFlights, which will get passed as a prop to TripContainer, then to TripList
       <div>
         <Switch>
           <Route path="/trips" component={TripContainer} />
