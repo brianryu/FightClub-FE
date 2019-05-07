@@ -1,62 +1,84 @@
 import React from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+import Geocode from "react-geocode";
+import { GoogleComponent } from 'react-google-location';
 
-export class MapContainer extends React.Component {
+const API_KEY = "AIzaSyD59JszwTdSvLl6RHGa2qIK5hvU4mYa8d8"
+
+
+
+
+class MapContainer extends React.Component {
+
+    state = {
+        destinationLat: 0,
+        destinationLng: 0
+    }
+
+    // state = {
+    //     lat: 33.7174708,
+            // lng: -117.8311428
+
+    // }
+
+  
+
+    componentDidMount(){
+        Geocode.setApiKey(API_KEY);
+        Geocode.fromAddress(this.props.destination).then(
+            response => {
+              const { lat, lng } = response.results[0].geometry.location;
+              
+              
+              this.setState({
+                destinationLat: lat,
+                destinationLng: lng
+            }, () => {console.log("this is in set state:", this.state)})}
+        )   
+    } 
+
+    
+
     render(){
 
-        this.state = {
-            activeMarker: {},
-            selectedPlace: {},
-            destinationName: this.props.destinationName,
-            markers: [{
-                lat: 0,
-                lng: 0,
-                title: ''
-            }]
-        }
+        console.log("this is in render", this.state)
 
         const mapstyle = {
-            width: '50vw',
+            width: '100%',
             height: '50vh'
         }
-
-        let onMarkerClick = (props, marker) => {
-            this.setState({
-                selectedPlace: props,
-                activeMarker: marker
-            })
-        }
-            
+        
+        
+        
+        // const latVar = this.state.destinationLat
+        // const lngVar = this.state.destinationLng
 
         return(
+        
+            this.state.destinationLat || this.state.destinationLng > 0 ? (
 
-            <div style = {mapstyle}>
+                <div style = {mapstyle}>
+                    <h1>{this.state.destinationLat}</h1>
+                    <h2>{this.state.destinationLng}</h2>
                     <Map google={this.props.google}
                         zoom={10}
                         style={mapstyle}
                         initialCenter={{
-                            lat: 40.7128, //need to pass these values down as a prop so that they can change
-                            lng: -74.0060
-                        }}
-                    >
+                            lat: this.state.destinationLat,
+                            lng: this.state.destinationLng
+                        }}>
 
-                    
-
-                    {/* <GoogleMap>
-                    {props.markers.map(marker => (
-                        <Marker
-                        position={{ lat: marker.latitude, lng: marker.longitude }}
-                        key={marker.id}
-                        />
-                    ))}
-                    </GoogleMap> */}
-
-
-
-
-                    
                     </Map>
-                </div>
+                    
+            </div>
+            ) : <h1>Sike!</h1> 
+            
+
+            
+            
+           
+            
+           
         )
     }
 }
