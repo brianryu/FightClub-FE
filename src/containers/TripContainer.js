@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import TripList from "./TripList";
 import PlanForm from '../components/PlanForm'
@@ -50,6 +50,29 @@ class TripContainer extends React.Component {
     })
 }
 
+// function to remove trip from the trip list
+handleRemoveTrip = (clickedTrip) => {
+    console.log(clickedTrip)
+    let copyAllTrip = [...this.state.allTrips]
+    copyAllTrip.map(trip => {
+        if(trip.id === clickedTrip.id){
+            copyAllTrip.splice(copyAllTrip.indexOf(trip),1)
+        }
+    })
+    fetch("http://localhost:3005/api/v1/trips", {
+        method: "DELETE",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({...clickedTrip})
+    }).then(r => r.json())
+    .then(r => {
+        this.setState({
+            allTrips: copyAllTrip
+        })
+    })
+}
+
   render() {
     return (
       <div>
@@ -71,11 +94,11 @@ class TripContainer extends React.Component {
 
         <Route path="/trips" render={(props) => {
             return (
-                <div>
+                <div className="tripList">
                     <h1>Your Trips</h1>
                     <PlanForm newTrip={this.newTrip}/>
                     {this.state.allTrips.map(tripObj => {
-                    return <TripList eachTrip={tripObj} />;
+                    return <TripList handleRemoveTrip={this.handleRemoveTrip} eachTrip={tripObj} />;
                 })}
                 </div>
             );
