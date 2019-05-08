@@ -20,7 +20,6 @@ class ToDoList extends React.Component {
                 <ul>
                 {this.props.trip.tasks.map(task => <li> {task.message} </li>)}
                 </ul>
-
             </ul>
 
         )
