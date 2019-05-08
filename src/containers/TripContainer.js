@@ -29,6 +29,8 @@ class TripContainer extends React.Component {
       });
   }
 
+
+// function adds new trips with unique names and img_url to the list of "trips"
   newTrip = (event, tripObj) => {
     event.preventDefault();
     let newArray = [tripObj, ...this.state.allTrips];
@@ -64,8 +66,6 @@ class TripContainer extends React.Component {
                     {this.state.allTrips.map(tripObj => {
                     return <TripList eachTrip={tripObj} />;
                 })}
-                  <PlanForm newTrip={this.newTrip} />
-
                 </div>
             );
         }}

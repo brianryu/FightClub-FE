@@ -57,8 +57,8 @@ class MapContainer extends React.Component {
             this.state.destinationLat || this.state.destinationLng > 0 ? (
 
                 <div style = {mapstyle}>
-                    <h1>{this.state.destinationLat}</h1>
-                    <h2>{this.state.destinationLng}</h2>
+                    <h1>Latitude: {this.state.destinationLat}</h1>
+                    <h2>Longitude: {this.state.destinationLng}</h2>
                     <Map google={this.props.google}
                         zoom={10}
                         style={mapstyle}
