@@ -33,11 +33,22 @@ class TripContainer extends React.Component {
 // function adds new trips with unique names and img_url to the list of "trips"
   newTrip = (event, tripObj) => {
     event.preventDefault();
-    let newArray = [tripObj, ...this.state.allTrips];
-    this.setState({
-      allTrips: newArray
-    });
-  };
+    let newArray = [...this.state.allTrips, tripObj];
+
+    fetch("http://localhost:3005/api/v1/trips", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({...tripObj})
+    })
+    .then(res => res.json())
+    .then(r => {
+        this.setState({
+            allTrips: newArray
+        })
+    })
+}
 
   render() {
     return (
