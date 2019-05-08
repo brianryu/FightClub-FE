@@ -5,6 +5,13 @@ class ToDoList extends React.Component {
     render() {
         console.log(this.props.trip)
         return (
+
+            <form onSubmit={(event) => {}}>
+            <label>Enter New Itinerary Item: </label>
+            <input placeholder="Type Here" name="task" type="text" onChange={this.handleChange} value={this.state.task}/>
+            <input type="submit"/>
+        </form>
+
             <ul>
                 <p>Trip Begins: {this.props.trip.start_date} </p>
                 <p>Trip Ends: {this.props.trip.end_date} </p>
@@ -14,6 +21,7 @@ class ToDoList extends React.Component {
                 {this.props.trip.tasks.map(task => <li> {task.message} </li>)}
                 </ul>
             </ul>
+
         )
     }
     

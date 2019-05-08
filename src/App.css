@@ -71,3 +71,9 @@ img {
 .tripList {
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
