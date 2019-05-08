@@ -15,8 +15,8 @@ class ToDoList extends React.Component {
     render() {
         return (
             <form onSubmit={(event) => {}}>
-            <label>Enter Your Task Here: </label>
-            <input placeholder="Name Of Trip" name="task" type="text" onChange={this.handleChange} value={this.state.task}/>
+            <label>Enter New Itinerary Item: </label>
+            <input placeholder="Type Here" name="task" type="text" onChange={this.handleChange} value={this.state.task}/>
             <input type="submit"/>
         </form>
         )
