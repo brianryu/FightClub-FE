@@ -7,7 +7,7 @@ class TripList extends React.Component {
     render(){
         
         return(           
-            <div>
+            <div className="gallery">
                 <Link to={`/trips/${this.props.eachTrip.name}`}>
                 <h2>{this.props.eachTrip.name}</h2> 
                 <img src={this.props.eachTrip.img_url} alt={this.props.eachTrip.name}/>
