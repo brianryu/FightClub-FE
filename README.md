@@ -8,7 +8,7 @@ This project was the inspiration for the project TripList.
 https://www.youtube.com/watch?v=Qt7fr4te-YA
 
 ## Screenshots
-![alt text](https://github.com/merestrickland/final-frontend/blob/master/images/TripListScreenshot.png "TripList Screenshot")
+![alt text](https://github.com/BrianRyu/TripPlanner-FE/blob/master/src/assets/TripPlannerScreenshot.png "TravelPlanner Screenshot")
 
 ## Tech/framework used
 Built with React.js and a Ruby on Rails backend
