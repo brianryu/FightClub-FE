@@ -2,7 +2,9 @@ import React from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 import Geocode from "react-geocode";
 
-const API_KEY = "AIzaSyD59JszwTdSvLl6RHGa2qIK5hvU4mYa8d8"
+//const API_KEY = "AIzaSyD59JszwTdSvLl6RHGa2qIK5hvU4mYa8d8"
+
+const API_KEY = 'hidden'
 
 
 
