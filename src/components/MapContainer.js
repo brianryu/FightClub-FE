@@ -2,7 +2,7 @@ import React from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 import Geocode from "react-geocode";
 
-//const API_KEY = "AIzaSyD59JszwTdSvLl6RHGa2qIK5hvU4mYa8d8"
+
 
 const API_KEY = 'hidden'
 
@@ -49,10 +49,6 @@ class MapContainer extends React.Component {
             height: '50vh'
         }
         
-        
-        
-        // const latVar = this.state.destinationLat
-        // const lngVar = this.state.destinationLng
 
         return(
         
@@ -71,13 +67,7 @@ class MapContainer extends React.Component {
                     </Map>
                     
             </div>
-            ) : <h1>Sike!</h1> 
-            
-
-            
-            
-           
-            
+            ) : null
            
         )
     }
@@ -85,6 +75,6 @@ class MapContainer extends React.Component {
 
 
 export default GoogleApiWrapper({
-//     apiKey: ('AIzaSyD59JszwTdSvLl6RHGa2qIK5hvU4mYa8d8')
+
        apiKey: ('hidden')
 })(MapContainer)
